@@ -1,0 +1,113 @@
+record(ai, "$(SYSTEM)-$(CH):getCurrent")
+{
+    field(DESC, "Reads Channel Current")
+    field(SCAN, "5 second")
+    field(PINI, "YES")
+    field(VAL, "0")
+    field(DTYP, "stream")
+    field(PREC, "2")
+    field(EGU, "A")
+    field(INP, "@HVPS.proto getCurrent($(CH)) $(DEVICE)")
+}
+
+record(ai, "$(SYSTEM)-$(CH):getVoltage")
+{
+    field(DESC, "Reads Channel Voltage")
+    field(SCAN, "5 second")
+    field(PINI, "YES")
+    field(VAL, "0")
+    field(DTYP, "stream")
+    field(PREC, "2")
+    field(EGU, "V")
+    field(INP, "@HVPS.proto getVoltage($(CH)) $(DEVICE)")
+}
+
+record(ao, "$(SYSTEM)-$(CH):setVoltage")
+{
+    field(DESC, "Set Channel Voltage")
+    field(PINI, "NO")
+    field(VAL,  "0")
+    field(DTYP, "stream")
+    field(PREC, "2")
+    field(EGU, "V")
+    field(OUT, "@HVPS.proto setVoltage($(CH)) $(DEVICE)")
+}
+
+record(ao, "$(SYSTEM)-$(CH):setCurrent")
+{
+    field(DESC, "Set Channel Current")
+    field(PINI, "YES")
+    field(DTYP, "stream")
+    field(PREC, "2")
+    field(EGU, "A")
+    field(VAL, "0") # Dummy Value
+    field(OUT, "@HVPS.proto setCurrent($(CH)) $(DEVICE)")
+}
+
+record(bo, "$(SYSTEM)-$(CH):enable")
+{
+    field(DESC, "Enable\Disable power supply")
+    field(PINI, "YES")
+    field(VAL, "1")
+    field(DTYP, "stream")
+    field(OUT, "@HVPS.proto enable($(CH)) $(DEVICE)")
+}
+
+record(stringout, "$(SYSTEM)-$(CH):setRemote")
+{
+    field(DESC, "set Contrl Mode to Remote")
+    field(PINI, "NO")
+    field(DTYP, "stream")
+    field(OUT, "@HVPS.proto setRemote($(CH)) $(DEVICE)")
+}
+
+record(stringout, "$(SYSTEM)-$(CH):setLocal")
+{
+    field(DESC, "set Contrl Mode to Local")
+    field(PINI, "NO")
+    field(DTYP, "stream")
+    field(OUT, "@HVPS.proto setLocal($(CH)) $(DEVICE)")
+}
+
+record(stringout, "$(SYSTEM)-$(CH):RST")
+{
+    field(DESC, "Reset cut-off state and enable to output")
+    field(PINI, "NO")
+    field(DTYP, "stream")
+    field(OUT, "@HVPS.proto RST($(CH)) $(DEVICE)")
+}
+
+record(ai, "$(SYSTEM)-$(CH):getCurrentSetting")
+{
+    field(DESC, "Reads Channel Current Setting")
+    field(SCAN, "5 second")
+    field(PINI, "YES")
+    field(VAL, "0")
+    field(DTYP, "stream")
+    field(PREC, "2")
+    field(EGU, "A")
+    field(INP, "@HVPS.proto getCurrentSetting($(CH)) $(DEVICE)")
+}
+
+record(ai, "$(SYSTEM)-$(CH):getVoltageSetting")
+{
+    field(DESC, "Reads Channel Voltage Setting")
+    field(SCAN, "5 second")
+    field(PINI, "YES")
+    field(VAL, "0")
+    field(DTYP, "stream")
+    field(PREC, "2")
+    field(EGU, "V")
+    field(INP, "@HVPS.proto getVoltageSetting($(CH)) $(DEVICE)")
+}
+
+record(bi, "$(SYSTEM)-$(CH):isEnabled")
+{
+    field(DESC, "Power supply output status")
+    field(SCAN, "5 second")
+    field(PINI, "YES")
+    field(VAL, "0")
+    field(DTYP, "stream")
+    field(INP, "@HVPS.proto isEnabled($(CH)) $(DEVICE)")
+}
+

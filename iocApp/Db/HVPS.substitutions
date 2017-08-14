@@ -1,0 +1,2 @@
+pattern {SYSTEM		DEVICE		CH}
+		{D08-PS-HVPS	HVPS3K	1 }

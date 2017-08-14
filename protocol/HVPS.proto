@@ -1,0 +1,73 @@
+OutTerminator = CR;
+InTerminator = "";
+
+getCurrent
+{
+    out "#\$1 IM";
+    in "%*3c%f";
+    ExtraInput = Ignore;
+}
+
+getVoltage
+{
+    out "#\$1 VM";
+    in "%*3c%f";
+    ExtraInput = Ignore;
+}
+
+setCurrent
+{
+    out  "#\$1 ICN %f ";
+}
+
+setVoltage
+{
+    out "#\$1 VCN %f";
+}
+
+enable
+{
+    out "#\$1 SW%d";
+}
+
+setLocalRemote
+{
+    out "#\$1 %s";
+    out "#\$1 RST";
+}
+
+getStatus
+{
+    out "#\$1 STS";
+    in "%s";
+    ExtraInput = Ignore;
+}
+
+reset
+{
+    out "#\$1 %s";
+}
+
+getCurrentSetting
+{
+    @init { out "#\$1 REN"; }
+    out "#\$1 ICN?";
+    in "%*4c%f";
+    ExtraInput = Ignore;
+}
+
+getVoltageSetting
+{
+    @init { out "#\$1 REN"; }
+    out "#\$1 VCN?";
+    in "%*4c%f";
+    ExtraInput = Ignore;
+}
+
+isEnabled
+{
+    @init { out "#\$1 REN"; }
+    out "#\$1 SW?";
+    in "%*2c%d";
+    ExtraInput = Ignore;
+}

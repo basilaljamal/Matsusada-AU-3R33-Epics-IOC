@@ -1,0 +1,113 @@
+record(ai, "D08-PS-HVPS-1:getCurrent")
+{
+    field(DESC, "Reads Channel Current")
+    field(SCAN, "5 second")
+    field(PINI, "YES")
+    field(VAL, "0")
+    field(DTYP, "stream")
+    field(PREC, "2")
+    field(EGU, "A")
+    field(INP, "@HVPS.proto getCurrent(1) HVPS3K")
+}
+
+record(ai, "D08-PS-HVPS-1:getVoltage")
+{
+    field(DESC, "Reads Channel Voltage")
+    field(SCAN, "5 second")
+    field(PINI, "YES")
+    field(VAL, "0")
+    field(DTYP, "stream")
+    field(PREC, "2")
+    field(EGU, "V")
+    field(INP, "@HVPS.proto getVoltage(1) HVPS3K")
+}
+
+record(ao, "D08-PS-HVPS-1:setVoltage")
+{
+    field(DESC, "Set Channel Voltage")
+    field(PINI, "NO")
+    field(VAL,  "0")
+    field(DTYP, "stream")
+    field(PREC, "2")
+    field(EGU, "V")
+    field(OUT, "@HVPS.proto setVoltage(1) HVPS3K")
+}
+
+record(ao, "D08-PS-HVPS-1:setCurrent")
+{
+    field(DESC, "Set Channel Current")
+    field(PINI, "YES")
+    field(DTYP, "stream")
+    field(PREC, "2")
+    field(EGU, "A")
+    field(VAL, "0") # Dummy Value
+    field(OUT, "@HVPS.proto setCurrent(1) HVPS3K")
+}
+
+record(bo, "D08-PS-HVPS-1:enable")
+{
+    field(DESC, "Enable\Disable power supply")
+    field(PINI, "YES")
+    field(VAL, "1")
+    field(DTYP, "stream")
+    field(OUT, "@HVPS.proto enable(1) HVPS3K")
+}
+
+record(stringout, "D08-PS-HVPS-1:setRemote")
+{
+    field(DESC, "set Contrl Mode to Remote")
+    field(PINI, "NO")
+    field(DTYP, "stream")
+    field(OUT, "@HVPS.proto setRemote(1) HVPS3K")
+}
+
+record(stringout, "D08-PS-HVPS-1:setLocal")
+{
+    field(DESC, "set Contrl Mode to Local")
+    field(PINI, "NO")
+    field(DTYP, "stream")
+    field(OUT, "@HVPS.proto setLocal(1) HVPS3K")
+}
+
+record(stringout, "D08-PS-HVPS-1:RST")
+{
+    field(DESC, "Reset cut-off state and enable to output")
+    field(PINI, "NO")
+    field(DTYP, "stream")
+    field(OUT, "@HVPS.proto RST(1) HVPS3K")
+}
+
+record(ai, "D08-PS-HVPS-1:getCurrentSetting")
+{
+    field(DESC, "Reads Channel Current Setting")
+    field(SCAN, "5 second")
+    field(PINI, "YES")
+    field(VAL, "0")
+    field(DTYP, "stream")
+    field(PREC, "2")
+    field(EGU, "A")
+    field(INP, "@HVPS.proto getCurrentSetting(1) HVPS3K")
+}
+
+record(ai, "D08-PS-HVPS-1:getVoltageSetting")
+{
+    field(DESC, "Reads Channel Voltage Setting")
+    field(SCAN, "5 second")
+    field(PINI, "YES")
+    field(VAL, "0")
+    field(DTYP, "stream")
+    field(PREC, "2")
+    field(EGU, "V")
+    field(INP, "@HVPS.proto getVoltageSetting(1) HVPS3K")
+}
+
+record(bi, "D08-PS-HVPS-1:isEnabled")
+{
+    field(DESC, "Power supply output status")
+    field(SCAN, "5 second")
+    field(PINI, "YES")
+    field(VAL, "0")
+    field(DTYP, "stream")
+    field(INP, "@HVPS.proto isEnabled(1) HVPS3K")
+}
+
